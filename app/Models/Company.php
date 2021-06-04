@@ -21,4 +21,9 @@ class Company extends Model
         'instagram',
         'youtube',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
