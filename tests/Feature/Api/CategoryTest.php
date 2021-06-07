@@ -107,4 +107,20 @@ class CategoryTest extends TestCase
         $response = $this->putJson("$this->endpoint/{$category->url}", $data);
         $response->assertStatus(200);
     }
+
+    /**
+     * Delete Category
+     *
+     * @return void
+     */
+    public function test_delete_category()
+    {
+        $category = Category::factory()->create();
+
+        $response = $this->deleteJson("{$this->endpoint}/fake-category");
+        $response->assertStatus(404);
+
+        $response = $this->deleteJson("{$this->endpoint}/{$category->url}");
+        $response->assertStatus(204);
+    }
 }
