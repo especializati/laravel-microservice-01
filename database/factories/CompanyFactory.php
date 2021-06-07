@@ -3,16 +3,17 @@
 namespace Database\Factories;
 
 use App\Models\Category;
+use App\Models\Company;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CategoryFactory extends Factory
+class CompanyFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Category::class;
+    protected $model = Company::class;
 
     /**
      * Define the model's default state.
@@ -22,8 +23,10 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->unique()->name(),
-            'description' => $this->faker->sentence(10),
+            'category_id' => Category::factory()->create(),
+            'name' => $this->faker->unique()->name(),
+            'email' => $this->faker->unique()->email(),
+            'whatsapp' => $this->faker->unique()->numberBetween(1000000000, 99999999999),
         ];
     }
 }
