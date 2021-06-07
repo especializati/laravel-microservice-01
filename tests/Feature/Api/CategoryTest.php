@@ -70,7 +70,7 @@ class CategoryTest extends TestCase
     }
 
     /**
-     * Validation Store Category
+     * Store Category
      *
      * @return void
      */
@@ -82,5 +82,29 @@ class CategoryTest extends TestCase
         ]);
 
         $response->assertStatus(201);
+    }
+
+    /**
+     * Update Category
+     *
+     * @return void
+     */
+    public function test_update_category()
+    {
+        $category = Category::factory()->create();
+
+        $data = [
+            'title' => 'Title Updated',
+            'description' => 'Description Updated',
+        ];
+
+        $response = $this->putJson("$this->endpoint/fake-category", $data);
+        $response->assertStatus(404);
+
+        $response = $this->putJson("$this->endpoint/{$category->url}", []);
+        $response->assertStatus(422);
+
+        $response = $this->putJson("$this->endpoint/{$category->url}", $data);
+        $response->assertStatus(200);
     }
 }
