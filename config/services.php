@@ -30,4 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'micro_02' => [
+        'url' => env('MICRO_02_URL'),
+        'token' => env('MICRO_02_TOKEN'),
+    ],
+
 ];
