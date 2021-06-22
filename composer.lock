@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7759431e303e2d722a264a8a991a9e84",
+    "content-hash": "166cbf55b4e113113e954200538033bb",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -117,6 +117,43 @@
                 }
             ],
             "time": "2021-01-20T22:51:39+00:00"
+        },
+        {
+            "name": "carlosfgti/microservices-common",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/carlosfgti/microservices-common.git",
+                "reference": "f0a412f5f71f53ae0f96bbfbc9044125b02e516e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/carlosfgti/microservices-common/zipball/f0a412f5f71f53ae0f96bbfbc9044125b02e516e",
+                "reference": "f0a412f5f71f53ae0f96bbfbc9044125b02e516e",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Carlosfgti\\MicroservicesCommon\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Carlos Ferreira",
+                    "email": "carlos@especializati.com.br"
+                }
+            ],
+            "description": "Package Files Utils Microservices Courses",
+            "support": {
+                "issues": "https://github.com/carlosfgti/microservices-common/issues",
+                "source": "https://github.com/carlosfgti/microservices-common/tree/1.0.0"
+            },
+            "time": "2021-06-22T19:09:31+00:00"
         },
         {
             "name": "doctrine/inflector",
