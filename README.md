@@ -1,5 +1,5 @@
 # Curso Laravel Microservices com RabbitMQ (micro 01)
-[Saiba Mais Sobre o Curso](https://patreon.com/taylorotwell)
+[Saiba Mais Sobre o Curso](https://academy.especializati.com.br/curso/laravel-microservices-rabbitmq)
 
 ### Instalação
 Clonar Projeto
