@@ -3,6 +3,8 @@
 namespace App\Services;
 
 use App\Models\Company;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 
 class CompanyService
 {
@@ -19,8 +21,11 @@ class CompanyService
                         ->getCompanies($filter);
     }
 
-    public function createNewCompany(array $data)
+    public function createNewCompany(array $data, UploadedFile $image)
     {
+        $path = $this->uploadImage($image);
+        $data['image'] = $path;
+
         return $this->repository->create($data);
     }
 
@@ -33,15 +38,28 @@ class CompanyService
     {
         $company = $this->getCompanyByUUID($uuid);
 
+        if (Storage::exists($company->image))
+            Storage::delete($company->image);
+
         return $company->delete();
     }
 
-    public function updateCompany(string $uuid = '', array $data)
+    public function updateCompany(string $uuid = '', array $data, UploadedFile $image = null)
     {
         $company = $this->getCompanyByUUID($uuid);
 
-        $company->update($data);
+        if ($image) {
+            if (Storage::exists($company->image))
+                Storage::delete($company->image);
 
-        return $company->delete();
+            $data['image'] = $this->uploadImage($image);
+        }
+
+        return $company->update($data);
+    }
+
+    private function uploadImage(UploadedFile $image)
+    {
+        return $image->store('companies');
     }
 }

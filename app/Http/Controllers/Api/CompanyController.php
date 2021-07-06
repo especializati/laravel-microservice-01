@@ -42,7 +42,7 @@ class CompanyController extends Controller
      */
     public function store(StoreUpdateCompany $request)
     {
-        $company = $this->companyService->createNewCompany($request->validated());
+        $company = $this->companyService->createNewCompany($request->validated(), $request->image);
 
         CompanyCreated::dispatch($company->email)
                             ->onQueue('queue_email');
@@ -77,7 +77,7 @@ class CompanyController extends Controller
      */
     public function update(StoreUpdateCompany $request, $uuid)
     {
-        $this->companyService->updateCompany($uuid, $request->validated());
+        $this->companyService->updateCompany($uuid, $request->validated(), $request->image);
 
         return response()->json([
             'message' => 'Updated'

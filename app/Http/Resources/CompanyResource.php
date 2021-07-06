@@ -25,6 +25,7 @@ class CompanyResource extends JsonResource
             'facebook' => $this->facebook,
             'instagram' => $this->instagram,
             'youtube' => $this->youtube,
+            'image' => url("storage/{$this->image}"),
         ];
     }
 }

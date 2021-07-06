@@ -20,6 +20,7 @@ class Company extends Model
         'facebook',
         'instagram',
         'youtube',
+        'image',
     ];
 
     public function category()
